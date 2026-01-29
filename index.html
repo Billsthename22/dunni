@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAISE IREAYOTOMIWA | THE EDIT</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Inter:wght@300;900&display=swap');
+
+        :root {
+            --red: #D00000;
+            --black: #000000;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* PAGE MANAGEMENT */
+        .page {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* FIXED & SMART NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            /* Magic trick: text color flips based on background */
+            mix-blend-mode: difference; 
+            color: white; 
+        }
+
+        .logo { 
+            font-family: 'Playfair Display', serif; 
+            font-weight: 900; 
+            font-size: 1.8rem; 
+            color: inherit; 
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .nav-links { display: flex; gap: 25px; }
+        
+        .nav-links a {
+            color: inherit;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            font-weight: 900;
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        /* Hover Line Effect */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--red);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO SLIDESHOW */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .video-slideshow {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        .video-slideshow video {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: videoFade 15s infinite;
+        }
+
+        .video-slideshow video:nth-child(1) { animation-delay: 0s; }
+        .video-slideshow video:nth-child(2) { animation-delay: 5s; }
+        .video-slideshow video:nth-child(3) { animation-delay: 10s; }
+
+        @keyframes videoFade {
+            0% { opacity: 0; }
+            10% { opacity: 0.5; }
+            33% { opacity: 0.5; }
+            43% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .hero-content { z-index: 10; width: 90%; }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 8vw;
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+
+        /* ARCHIVE GRID (PAGE 2) */
+        #archive-page { background-color: var(--white); color: var(--black); }
+        .section-padding { padding: 120px 50px; }
+        .section-title { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            color: var(--red); 
+            margin-bottom: 40px; 
+            text-transform: uppercase;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            aspect-ratio: 9/16;
+            background: #111;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .video-card video {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(1); transition: 0.5s;
+        }
+
+        .video-card:hover video { filter: grayscale(0); }
+
+        /* TRAVEL SECTION (PAGE 3) */
+        #travel-page { background-color: var(--white); color: var(--black); }
+        .travel-list { border-top: 2px solid var(--black); margin-top: 20px;}
+        .travel-item {
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            transition: 0.3s;
+        }
+        .travel-item:hover { color: var(--red); padding-left: 15px;}
+
+        /* MARQUEE */
+        .marquee {
+            position: absolute;
+            bottom: 0; width: 100%; background: var(--red);
+            padding: 12px 0; z-index: 20; overflow: hidden; white-space: nowrap;
+        }
+
+        .marquee span {
+            display: inline-block;
+            font-weight: 900; font-size: 0.75rem;
+            text-transform: uppercase; letter-spacing: 5px;
+            animation: scrollText 20s linear infinite;
+            color: white;
+        }
+
+        @keyframes scrollText {
+            from { transform: translateX(0%); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            nav { padding: 20px; flex-direction: column; gap: 15px; }
+            .hero-content h1 { font-size: 12vw; }
+            .section-padding { padding: 100px 20px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav style="position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 25px 40px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px);">
+        <a class="logo" href="index.html" style="font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.3rem; text-decoration: none; color: #fff; letter-spacing: -1px;">P.I.O.</a>
+        
+        <div class="nav-links" style="display: flex; gap: 40px;">
+            <a href="index.html" style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Cover</a>
+            <a href="bio.html" style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Bio</a>
+            <a href="vault.html" style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Vault</a>
+        </div>
+    </nav>
+
+    <div id="home-page" class="page active">
+        <section class="hero">
+            <div class="video-slideshow">
+                <video autoplay muted loop playsinline><source src="0FC16456-6B35-411F-8FE5-7A4A4C94778E.MOV" type="video/mp4"></video>
+                <video autoplay muted loop playsinline><source src="1C9500B0-262A-456C-BADB-D6F6C55F9A43.MOV" type="video/mp4"></video>
+                <video autoplay muted loop playsinline><source src="4F9049F2-5C60-4D4D-AFC4-612E60EC5F29.MOV" type="video/mp4"></video>
+            </div>
+            <div class="hero-content">
+                <h1>Praise Ireayotomiwa Oyewole</h1>
+            </div>
+            <div class="marquee">
+                <span>Praise Ireayotomiwa Oyewole &nbsp; • &nbsp; Praise Ireayotomiwa Oyewole &nbsp; • &nbsp; Praise Ireayotomiwa Oyewole &nbsp; • &nbsp;</span>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+</html>

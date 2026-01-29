@@ -1,0 +1,97 @@
+<div id="archive-page" class="page">
+    <nav style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 25px 40px; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); box-sizing: border-box;">
+        
+        <a href="index.html" style="font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.3rem; text-decoration: none; color: #fff; letter-spacing: -1px; flex-shrink: 0;">P.I.O.</a>
+        
+        <div class="nav-links" style="display: flex; gap: 40px; align-items: center; flex-shrink: 0;">
+            <a href="index.html" style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6;">Cover</a>
+            <a href="bio.html" style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6;">Bio</a>
+            <a href="vault.html" style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #ff0000; padding-bottom: 4px;">Vault</a>
+        </div>
+    </nav>
+
+    <section style="background: #000; color: #fff; min-height: 100vh; padding: 120px 40px 60px;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            
+            <header style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 20px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <p style="font-size: 0.7rem; letter-spacing: 5px; color: #ff0000; font-weight: 900; margin-bottom: 10px;">MOTION INDEX</p>
+                    <h2 style="font-family: 'Inter', sans-serif; font-weight: 900; font-size: 2.5rem; text-transform: uppercase; letter-spacing: -1px;">Digital Vault</h2>
+                </div>
+
+                <nav id="vol-nav" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button onclick="showVolume(1)" class="vol-btn active">01</button>
+                    <button onclick="showVolume(2)" class="vol-btn">02</button>
+                    <button onclick="showVolume(3)" class="vol-btn">03</button>
+                    <button onclick="showVolume(4)" class="vol-btn">04</button>
+                    <button onclick="showVolume(5)" class="vol-btn">05</button>
+                    <button onclick="showVolume(6)" class="vol-btn">06</button>
+                </nav>
+            </header>
+
+            <style>
+                .archive-grid { display: none; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+                .archive-grid.active { display: grid; }
+                .vol-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 5px 15px; font-weight: 900; cursor: pointer; transition: 0.3s; }
+                .vol-btn.active { background: #fff; color: #000; border-color: #fff; }
+                .video-box { aspect-ratio: 9/16; background: #111; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); position: relative; }
+                .video-box video { width: 100%; height: 100%; object-fit: cover; }
+                .entry-label { margin-top: 10px; font-size: 0.7rem; font-weight: 900; opacity: 0.6; }
+                
+                .nav-links a:hover { opacity: 1 !important; color: #ff0000 !important; transition: 0.3s; }
+
+                @media (max-width: 1000px) { .archive-grid { grid-template-columns: repeat(2, 1fr); } }
+            </style>
+
+            <div id="vol-1" class="archive-grid active">
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="0FC16456-6B35-411F-8FE5-7A4A4C94778E.MOV"></video></div><div class="entry-label">ENT_001</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="1C9500B0-262A-456C-BADB-D6F6C55F9A43.MOV"></video></div><div class="entry-label">ENT_002</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="4F9049F2-5C60-4D4D-AFC4-612E60EC5F29.MOV"></video></div><div class="entry-label">ENT_003</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="4F769795-CAE6-4F1F-8C30-7D6451E142E8.MOV"></video></div><div class="entry-label">ENT_004</div></div>
+            </div>
+
+            <div id="vol-2" class="archive-grid">
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="4FDE8395-68A5-4C57-8D17-3301AC8ACB2E.MOV"></video></div><div class="entry-label">ENT_005</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="5D41E9E0-C2D6-4DED-B602-340D3D42AE90.MOV"></video></div><div class="entry-label">ENT_006</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="7C5D21EF-79D2-4358-A857-64A44C1A7CFF.MOV"></video></div><div class="entry-label">ENT_007</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="9DBFBA70-2486-4EFD-A475-B231AC16DAAD.MOV"></video></div><div class="entry-label">ENT_008</div></div>
+            </div>
+
+            <div id="vol-3" class="archive-grid">
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="10B7BAC7-277C-4343-9640-AD7A979084B8.MOV"></video></div><div class="entry-label">ENT_009</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="86AD5E52-ED01-4C6A-AFD0-9BAD03A6519B.MOV"></video></div><div class="entry-label">ENT_010</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="092D08CC-0502-4C4F-ABD0-7F310648D2CE.MOV"></video></div><div class="entry-label">ENT_011</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="329DE0E8-F663-4400-86FC-942E5FC54D2C.MOV"></video></div><div class="entry-label">ENT_012</div></div>
+            </div>
+
+            <div id="vol-4" class="archive-grid">
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="718A0509-9DE5-45C4-8733-C12CF1859481.MOV"></video></div><div class="entry-label">ENT_013</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="978DF12A-E637-4FE6-BC24-AE258EE43557.MOV"></video></div><div class="entry-label">ENT_014</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="46598E9C-9233-4334-A221-952E0C965450.MOV"></video></div><div class="entry-label">ENT_015</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="B686E3FD-4728-4E71-9FAE-697DD1E6EA90.MOV"></video></div><div class="entry-label">ENT_016</div></div>
+            </div>
+
+            <div id="vol-5" class="archive-grid">
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="CAD09920-057A-41F4-8A6E-1528AB0BEE5A.MOV"></video></div><div class="entry-label">ENT_017</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="D1A11E10-DAA9-47E2-9973-9ADB6519F575.MOV"></video></div><div class="entry-label">ENT_018</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="DAE19999-DFB5-40CA-BA20-577651A6A43C.MOV"></video></div><div class="entry-label">ENT_019</div></div>
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="DE9D811B-F957-4F5B-9219-9EABDC47A718.MOV"></video></div><div class="entry-label">ENT_020</div></div>
+            </div>
+
+            <div id="vol-6" class="archive-grid">
+                <div class="video-entry"><div class="video-box"><video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="E071746C-7B2E-4E12-8F79-986837EDDF5C.MOV"></video></div><div class="entry-label">ENT_021</div></div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        function showVolume(n) {
+            document.querySelectorAll('.archive-grid').forEach(g => g.classList.remove('active'));
+            document.querySelectorAll('.vol-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('vol-' + n).classList.add('active');
+            // Using event.currentTarget ensures we get the button even if internal text is clicked
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</div>
